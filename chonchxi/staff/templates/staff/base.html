@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="script" href="{% static 'staff/script.js' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <h3>
+        {% if user.is_authenticated == True %}
+            <a class="taskbar_a" href="{% url 'school' %}">სკოლა</a>
+            <a class="taskbar_a" href="{% url 'competitors' %}">სპორტსმენი</a>
+            <div class="dropdown">
+              <button class="dropbtn">სეზონი</button>
+              <div class="dropdown-content">
+                <a href="{% url 'seasons' %}">სეზონი</a>
+                <a href="{% url 'stage' %}">ეტაპი</a>
+                <a href="{% url 'group' %}">ჯგუფი</a>
+              </div>
+            </div>
+            <a class="taskbar_a" href="{% url 'shake' %}">ჯგუფის შექმნა</a>
+            <a class="taskbar_a" href="{% url 'shuffle' %}">კენჭის ყრა</a>
+            <a class="taskbar_a" href="#">შედეგები</a>
+            <a class="taskbar_a" id="logout_button" href="{% url 'logout' %}">გასვლა</a>
+
+        {% else %}
+            <a class="taskbar_a" href="{% url 'login' %}">შესვლა</a>
+        {% endif %}
+        </h3>
+    <link rel="stylesheet" type="text/css" href="{% static 'staff/style.css' %}">
+</head>
+    <hr>
+{% block content %}
+
+{% endblock content %}

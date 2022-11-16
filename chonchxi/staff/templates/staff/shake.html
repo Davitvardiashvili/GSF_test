@@ -1,0 +1,55 @@
+{% extends 'staff/base.html' %}
+{% block content %}
+
+<body style="background: #6ab1d0">
+
+
+<p class="counter" >ჯგუფების რაოდენობა სულ  <a style="font-size: 18px;color: red;background: #0b5372;padding: 5px;  border-radius: 10px;">{{count}}</a></p>
+
+
+<form class="form-comp" action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input  style="background: #04AA6D" type="submit" value="დამატება">
+</form>
+
+
+
+
+<form class="filter-form" id="shake_filter" style="margin-top: 20px" method="get">
+    <label for="id_season_filter">სეზონი:</label>{{shake_filter.form.season_name}}
+    <label for="id_stage_filter">ეტაპი:</label>{{shake_filter.form.stage_name}}
+    <label for="id_discipline">დისციპლინა:</label>{{shake_filter.form.discipline}}
+    <label for="id_group_name">ჯგუფი:</label>{{shake_filter.form.group_name}}
+    <button class="filter" type="submit">გაფილტრე</button>
+</form>
+
+<table style="margin-top: 20px" class="competitors">
+    <tr>
+        <th>სეზონი</th>
+        <th>ეტაპი</th>
+        <th>დისციპლინა</th>
+        <th>ჯგუფი</th>
+        <th>წაშლა</th>
+
+    </tr>
+    <tr>
+        {% for x in competitor_groups %}
+            <tr>
+                {% csrf_token %}
+                <td>{{ x.season_name }}</td>
+                <td>{{ x.stage_name }}</td>
+                <td>{{ x.discipline }}</td>
+                <td>{{ x.group_name }}</td>
+                <td><a class="delete_button" href="{% url 'delete-shake' x.id %}">Delete</a></td>
+
+            </tr>
+        {% endfor %}
+    </tr>
+</table>
+
+
+</body>
+
+
+{% endblock content %}

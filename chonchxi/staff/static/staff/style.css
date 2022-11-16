@@ -1,0 +1,299 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+}
+
+.taskbar_a{
+  transition: 0.5s;
+  padding: 10px;
+  color: #0b5372;
+  font-size: 18px;
+  font-family: "BPG Nino Mtavruli";
+  background: #cbebfc;
+  border-radius: 10px;
+  text-decoration:none !important;
+  border-bottom:none;
+}
+
+.taskbar_a:hover{background-color: #4b83f1;}
+.competitors,#schools {
+  margin-bottom: 30px;
+  font-family: "BPG Nino Mtavruli";
+  font-weight: bolder;
+  border-collapse: collapse;
+  width: 70%;
+  border: 0.5px solid #0f3046;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.competitors  td, .competitors  th {
+  border: 0.5px solid #000000;
+  text-align: center;
+}
+.competitors tr,#schools tr{
+  background-color: #8f8f8f;
+}
+.competitors tr:nth-child(even),#schools  tr:nth-child(even){background-color: #797373;}
+
+.competitors tr:hover,#schools tr:hover{background-color: #689d9d;}
+
+.competitors  th,#schools th{
+  border-radius: 0.5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #948910;
+  color: #f6f5f5;
+}
+
+
+#schools {
+  font-family: "BPG Nino Mtavruli";
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#schools  td, #schools  th {
+  border: 1px solid #bdbdbd;
+  padding: 8px;
+  text-align: center;
+}
+
+.form-comp{
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+
+
+.update_button{
+  position: relative;
+  display: inline-block;
+
+  border-radius: 6px;
+  clip-path: polygon(20px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 20px);
+  background: #238cbb;
+  padding: 10px 20px;
+  margin: 0 8px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #dddddd;
+  text-decoration:none !important;
+  border-bottom:none;
+  transition: clip-path 500ms;
+}
+
+.update_button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: #238cbb;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 6px 0;
+  transition: transform 500ms;
+}
+
+.update_button:hover {
+  clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 0px);
+}
+
+.update_button:hover:after {
+  transform: translate(-100%, -100%);
+}
+
+
+
+
+.delete_button{
+  position: relative;
+  display: inline-block;
+  border-radius: 6px;
+  clip-path: polygon(20px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 20px);
+  background: #b21f1f;
+  padding: 10px 20px;
+  margin: 0 8px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #dddddd;
+  text-decoration:none !important;
+  border-bottom:none;
+  transition: clip-path 500ms;
+}
+
+.delete_button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: #ec3535;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 6px 0;
+  transition: transform 500ms;
+}
+
+.delete_button:hover {
+  clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 0px);
+}
+
+.delete_button:hover:after {
+  transform: translate(-100%, -100%);
+}
+
+#logout_button{
+  margin-left: 400px;
+  background: #75051b;
+  color: #cbebfc;
+}
+.counter,label{
+  font-family: "BPG Nino Mtavruli";
+  font-weight: bolder;
+  color: #0b5372;
+}
+
+li {
+  background-color: #0b5718;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+input[type=text],input[type=number],input[type=password],select {
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: "BPG Nino Mtavruli";
+  font-weight: bold;
+  border:none;
+  padding: 8px;
+  background-color: #cbebfc;
+  color: #0b5372;
+}
+input[type=submit]{
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: "BPG Nino Mtavruli";
+  font-weight: bold;
+  border:none;
+  padding: 8px;
+  background-color: #61a151;
+  color: #a2f690;
+}
+
+
+
+
+
+
+.dropbtn {
+  border: none;
+  padding: 10px;
+  color: #0b5372;
+  font-size: 18px;
+  font-family: "BPG Nino Mtavruli";
+  font-weight: bold;
+  background: #cbebfc;
+  border-radius: 10px;
+  text-decoration:none !important;
+
+  transition: 0.5s;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  padding: 10px;
+  color: #0b5372;
+  font-size: 18px;
+  font-family: "BPG Nino Mtavruli";
+  background: #438bab;
+  border-radius: 10px;
+  text-decoration:none !important;
+  border-bottom:none;
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+
+  color: #0b5372;
+  font-size: 15px;
+  font-family: "BPG Nino Mtavruli";
+  background: #438bab;
+  border-radius: 10px;
+  text-decoration:none !important;
+  border-bottom:none;
+  padding: 8px;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #4b83f1;}
+
+
+
+.M{
+  color: #0765ff;
+}
+.W{
+  color: deeppink;
+}
+
+
+
+.filter{
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: "BPG Nino Mtavruli";
+  font-weight: bold;
+  border:none;
+  padding: 8px;
+  background-color: #0765ff;
+  color: #a2f690;
+}
+
+.filter-form{
+  padding: 5px;
+  margin-bottom: 15px;
+  justify-content: center;
+  width: 60%;
+  background-color: #d8ffd4;
+  border-radius: 10px;
+}
+
+#filter-shuffle{
+  width: 45%;
+}
+#groups_filters{
+  width: 60%;
+}
+#shake_filter{
+  width: 99%;
+}
