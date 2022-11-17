@@ -1,6 +1,9 @@
 html, body {
     height: 100%;
 }
+body{
+  width: 80%;
+}
 
 html {
     display: table;
@@ -60,7 +63,7 @@ body {
 #schools {
   font-family: "BPG Nino Mtavruli";
   border-collapse: collapse;
-  width: 80%;
+  width: 100%;
 }
 
 #schools  td, #schools  th {
@@ -80,7 +83,7 @@ body {
 .update_button{
   position: relative;
   display: inline-block;
-
+  font-family: Arial;
   border-radius: 6px;
   clip-path: polygon(20px 0px, 100% 0px, 100% 100%, 0% 100%, 0% 20px);
   background: #238cbb;
@@ -247,7 +250,9 @@ input[type=submit]{
   padding: 8px;
   display: block;
 }
-
+body{
+  background-image: url('1041.jpg');
+}
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd;}
 

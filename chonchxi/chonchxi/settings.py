@@ -58,14 +58,8 @@ WSGI_APPLICATION = 'chonchxi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django-server',
-        'USER': 'postgres',
-        'PASSWORD': 'D@v1T31427',
-        'HOST': 'localhost',
-        'PORT': '',
-        'OPTIONS': {
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
