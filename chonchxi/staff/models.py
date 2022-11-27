@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+import math
 
 class Season(models.Model):
     season_name = models.CharField(max_length=50)
@@ -54,6 +54,9 @@ class Competitor(models.Model):
     class Meta:
         db_table = 'staff_competitor'
 
+    def __str__(self):
+        return f' {self.surname} {self.name} '
+
 
 class Shake(models.Model):
     season_name = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
@@ -66,3 +69,8 @@ class Shake(models.Model):
 
     class Meta:
         ordering = ['-updated', '-created']
+
+    def __str__(self):
+        return f' {self.season_name} - {self.stage_name} - {self.discipline} - {self.group_name} - {self.participants}'
+
+

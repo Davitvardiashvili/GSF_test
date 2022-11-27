@@ -2,14 +2,13 @@
 {% block content %}
 
 <body>
-
     <form class="form-comp" action="" method="post">
         {% csrf_token %}
         {{ form }}
-        <input  style="background: #04AA6D" type="submit" value="დამატება">
+        <input class="button-33" type="submit" value="დამატება">
     </form>
 
-    <p class="counter" >სპორტსმენების რაოდენობა სულ  <a style="font-size: 18px;color: red;background: #0b5372;padding: 5px;  border-radius: 10px;">{{count}}</a></p>
+    <p class="counter" >სპორტსმენების რაოდენობა სულ  <a class="count">{{count}}</a></p>
 
 
     <form class="filter-form" method="get">
@@ -19,7 +18,7 @@
         {{myfilter.form.school}}
         <label for="id_gender">სქესი:</label>
         {{myfilter.form.gender}}
-        <button class="filter" type="submit">
+        <button class="button-33" id="filter_btn" type="submit">
             გაფილტრე
         </button>
     </form>
@@ -42,9 +41,8 @@
                     <td>{{ competitor.year }}</td>
                     <td>{{ competitor.school }}</td>
                     <td class="{{ competitor.gender }}" >{{ competitor.gender }}</td>
-                    <script>f_color();</script>
-                    <td><a class="update_button" href="{% url 'update-competitor' competitor.id %}">Update</a></td>
-                    <td><a class="delete_button" href="{% url 'delete-competitor' competitor.id %}">Delete</a></td>
+                    <td><a class="button-33" id="update_btn" href="{% url 'update-competitor' competitor.id %}">შეცვლა</a></td>
+                    <td><a class="button-33" id="delete_btn" href="{% url 'delete-competitor' competitor.id %}">წაშლა</a></td>
                 </tr>
             {% endfor %}
         </tr>

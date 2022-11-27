@@ -1,25 +1,25 @@
 {% extends 'staff/base.html' %}
 {% block content %}
 <body>
-    <form id="form" action="" method="post">
+    <form class="form-comp" id="form" action="" method="post">
         {% csrf_token %}
         {{ form }}
-        <input id="add" type="submit" value="დამატება">
+        <input class="button-33" id="add" type="submit" value="დამატება">
     </form>
-    <p class="counter" >ეტაპები სულ {{ count }}</p>
+    <p class="counter" >ეტაპები სულ <a class="count">{{ count }}</a></p>
 
 <table id="schools">
         <tr>
             <th>ეტაპის სახელი</th>
-            <th>ცვლილება</th>
+            <th>შეცვლა</th>
             <th>წაშლა</th>
         </tr>
         <tr>
             {% for stage in stages %}
             <tr>
                 <td>{{ stage.stage_name }}</td>
-                <td><a class="update_button" href="{% url 'update-stage' stage.id %}">Update</a></td>
-                <td><a class="delete_button" href="{% url 'delete-stage' stage.id %}">Delete</a></td>
+                <td><a class="button-33" id="update_btn" href="{% url 'update-stage' stage.id %}">შეცვლა</a></td>
+                <td><a class="button-33" id="delete_btn" href="{% url 'delete-stage' stage.id %}">წაშლა</a></td>
 
             </tr>
             {% endfor %}

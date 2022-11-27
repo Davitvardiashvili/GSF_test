@@ -1,18 +1,18 @@
 {% extends 'staff/base.html' %}
 {% block content %}
 <body>
-    <form id="form" action="" method="post">
+    <form class="form-comp" id="form" action="" method="post">
         {% csrf_token %}
         {{ form }}
-        <input id="add" type="submit" value="დამატება">
+        <input class="button-33" id="add" type="submit" value="დამატება">
     </form>
 
 
-    <p class="counter" >ეტაპები სულ <a style="font-size: 18px;color: red;background: #0b5372;padding: 5px;  border-radius: 10px;">{{count}}</a></p>
+    <p class="counter" >ეტაპები სულ <a class="count">{{count}}</a></p>
     <form class="filter-form" id="groups_filters" method="get">
         <label for="id_gender">ჯგუფი:</label>
         {{group_filter.form.group_name}}
-        <button class="filter" type="submit">
+        <button class="button-33" id="filter_btn" type="submit">
         გაფილტრე
         </button>
     </form>
@@ -21,15 +21,15 @@
     <table id="schools">
             <tr>
                 <th>ჯგუფი</th>
-                <th>ცვლილება</th>
+                <th>შეცვლა</th>
                 <th>წაშლა</th>
             </tr>
             <tr>
                 {% for group in groups %}
                 <tr>
                     <td>{{ group.group_name }}</td>
-                    <td><a class="update_button" href="{% url 'update-group' group.id %}">Update</a></td>
-                    <td><a class="delete_button" href="{% url 'delete-group' group.id %}">Delete</a></td>
+                    <td><a class="button-33" id="update_btn" href="{% url 'update-group' group.id %}">შეცვლა</a></td>
+                    <td><a class="button-33" id="delete_btn" href="{% url 'delete-group' group.id %}">წაშლა</a></td>
 
                 </tr>
                 {% endfor %}

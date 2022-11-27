@@ -7,18 +7,22 @@ class SeasonForm(ModelForm):
     class Meta:
         model = Season
         fields = '__all__'
+        labels = {'season_name': 'სეზონი'}
+
 
 
 class StageForm(ModelForm):
     class Meta:
         model = Stage
         fields = '__all__'
+        labels = {'stage_name': 'ეტაპი'}
 
 
 class GroupForm(ModelForm):
     class Meta:
         model = Group
         fields = ['group_name']
+        labels = {'group_name': 'ჯგუფი'}
 
 
 class ShakeForm(ModelForm):

@@ -17,6 +17,7 @@
         <th>ეტაპი</th>
         <th>დისციპლინა</th>
         <th>ჯგუფი</th>
+        <th>ცვლილება</th>
 
     </tr>
     <tr>
@@ -28,7 +29,7 @@
                     <td>{{ x.stage_name }}</td>
                     <td>{{ x.discipline }}</td>
                     <td>{{ x.group_name }}</td>
-                    <td><a href="{% url 'shuffle-add' x.id %}">add</a></td>
+                    <td><a class="button-33" id="update_btn" href="{% url 'shuffle-add' x.id %}">ცვლილება +</a></td>
                 </a>
             </tr>
         {% endfor %}

@@ -4,7 +4,75 @@
 <body>
 
 {% csrf_token %}
-<div>{{ room.discipline }}</div>
+<div>{{ room }}</div>
+
+
+
+<form style="width:46%;float:right;" class="filter-form" method="get">
+    <label for="id_year">წელი:</label>
+    {{myfilter.form.year}}
+    <label for="id_school">სკოლა:</label>
+    {{myfilter.form.school}}
+    <label for="id_gender">სქესი:</label>
+    {{myfilter.form.gender}}
+    <button class="button-33" id="filter_btn" type="submit">
+        გაფილტრე
+    </button>
+</form>
+
+
+
+
+<div>
+
+
+
+    <table class="competitors" style="float: left;width:50%;">
+        <tr>
+            <th>BIB</th>
+            <th>გვარი</th>
+            <th>სახელი</th>
+            <th>წელი</th>
+            <th>სკოლა</th>
+            <th>სქესი</th>
+            <th>ამოშლა</th>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+
+
+
+
+
+
+    <table class="competitors" style="float: left;width:46%;margin-left:4px;">
+        <tr>
+
+            <th>გვარი</th>
+            <th>სახელი</th>
+            <th>წელი</th>
+            <th>სკოლა</th>
+            <th>სქესი</th>
+            <th>დამატება</th>
+        </tr>
+        <tr>
+            {% for competitor in competitors %}
+                    <tr>
+                        <td>{{ competitor.surname }}</td>
+                        <td>{{ competitor.name }}</td>
+                        <td>{{ competitor.year }}</td>
+                        <td>{{ competitor.school }}</td>
+                        <td class="{{ competitor.gender }}" >{{ competitor.gender }}</td>
+                        {% csrf_token %}
+                        <td><form method="post"><input class="button-33" type="submit" value="  +  "></form></td>
+                    </tr>
+            {% endfor %}
+        </tr>
+    </table>
+
+</div>
+
 
 
 </body>

@@ -20,8 +20,7 @@ urlpatterns = [
     path('group_delete/<event_id>', views.deleteGroup, name='delete-group'),
     path('shake/', views.shake, name='shake'),
     path('shake_delete/<event_id>', views.deleteShake, name='delete-shake'),
-    path('shuffle/', views.shuffle, name='shuffle'),
-    path('shuffle/add/<event_id>', views.shuffle_add, name='shuffle-add'),
+    path('shuffle/<int:pk>', views.shuffle, name='shuffle-add'),
 
 
 ]

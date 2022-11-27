@@ -4,25 +4,25 @@
 <body>
 
 
-    <form id="form" action="" method="post">
+    <form class="form-comp" id="form" action="" method="post">
         {% csrf_token %}
         {{ form }}
-        <input id="add" type="submit" value="დამატება">
+        <input class="button-33" id="add" type="submit" value="დამატება">
     </form>
-    <p class="counter" >სკოლები სულ <a style="font-size: 18px;color: red;background: #0b5372;padding: 5px;  border-radius: 10px;">{{count}}</a></p>
+    <p class="counter" >სკოლები სულ <a class="count">{{count}}</a></p>
 
     <table id="schools">
         <tr>
             <th>სკოლის სახელი</th>
-            <th>ცვლილება</th>
+            <th>შეცვლა</th>
             <th>წაშლა</th>
         </tr>
         <tr>
             {% for region in regions %}
             <tr>
                 <td>{{ region.school_name }}</td>
-                <td><a class="update_button" href="{% url 'update-school' region.id %}">Update</a></td>
-                <td><a class="delete_button" href="{% url 'delete-school' region.id %}">Delete</a></td>
+                <td><a class="button-33" id="update_btn" href="{% url 'update-school' region.id %}">შეცვლა</a></td>
+                <td><a class="button-33" id="delete_btn" href="{% url 'delete-school' region.id %}">წაშლა</a></td>
             </tr>
             {% endfor %}
         </tr>
