@@ -4,6 +4,7 @@ from .models import Competitor, School, Season, Stage, Group, Shake, Discipline
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .filters import Orderfilter, GroupFilter, ShakeFilter
+import random
 
 
 @login_required(login_url='login')
@@ -253,10 +254,24 @@ def deleteShake(request, event_id):
 
 @login_required(login_url='login')
 def shuffle(request, pk):
-    room = Shake.objects.filter(pk=pk)
+    room = Shake.objects.get(pk=pk)
     competitors = Competitor.objects.all()
     myfilter = Orderfilter(request.GET, queryset=competitors)
     competitors = myfilter.qs
-    context = {'myfilter': myfilter, 'room': room, 'competitors': competitors}
+    if request.GET.get('competitor'):
+        competitors_id = request.GET.get('competitor')
+        sub_competitors = Competitor.objects.get(id=competitors_id)
+        room.participants.add(sub_competitors.id)
+    if request.GET.get('delete'):
+        competitors_id = request.GET.get('delete')
+        sub_competitors = Competitor.objects.get(id=competitors_id)
+        room.participants.remove(sub_competitors.id)
+    else:
+        competitors_id = ""
+        sub_competitors = ""
+
+
+
+    context = {'myfilter': myfilter, 'room': room, 'competitors': competitors, 'sub_competitors': sub_competitors}
 
     return render(request, 'staff/shuffle-add.html', context)

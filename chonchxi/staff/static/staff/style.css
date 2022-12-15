@@ -269,7 +269,7 @@ input[type=submit]{
   display: block;
 }
 body{
-  background-image: url('1041.jpg');
+  background-color: rgb(201, 78, 78);
 }
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd;}
@@ -496,4 +496,20 @@ font-size:14px;
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+
+.group_header{
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  background:rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 1px;
+  margin-bottom: 10px;
+}
+.group_header_txt{
+  font-weight: bold;
+  font-family: "BPG Nino Mtavruli";
+  font-size: 20px;
+  color: #0b5372;
 }

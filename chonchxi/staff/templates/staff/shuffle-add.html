@@ -1,10 +1,29 @@
 {% extends 'staff/base.html' %}
 {% block content %}
-
+ {% load add_get_parameter %}
 <body>
 
 {% csrf_token %}
-<div>{{ room }}</div>
+<div class="group_header">
+    <p class="group_header_txt">
+        {{ room.season_name }} - {{ room.stage_name }} -
+    {{ room.discipline }} - {{ room.group_name }}</p>
+</div>
+
+
+<form style="width:49%;float:left;" class="filter-form" method="get">
+    <label for="id_year">წელი:</label>
+    {{myfilter.form.year}}
+    <label for="id_school">სკოლა:</label>
+    {{myfilter.form.school}}
+    <label for="id_gender">სქესი:</label>
+    {{myfilter.form.gender}}
+    <button class="button-33"  type="submit">
+        გაფილტრე
+    </button>
+</form>
+
+
 
 
 
@@ -38,7 +57,19 @@
             <th>ამოშლა</th>
         </tr>
         <tr>
+            {% for i in room.participants.all %}
+                <tr>
+                    <td>{{i.bib}}</td>
+                    <td>{{i.surname}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.year}}</td>
+                    <td>{{i.school}}</td>
+                    <td class="{{ i.gender }}" >{{ i.gender }}</td>
+                    <td><a class="button-33" id="delete_btn" href="{% add_get delete=i.id competitor='' %}"> - </a></td>
+                </tr>
+            {% endfor %}
         </tr>
+
     </table>
 
 
@@ -46,7 +77,7 @@
 
 
 
-    <table class="competitors" style="float: left;width:46%;margin-left:4px;">
+    <table class="competitors" style="float: right;width:46%;margin-left:4px;">
         <tr>
 
             <th>გვარი</th>
@@ -65,7 +96,9 @@
                         <td>{{ competitor.school }}</td>
                         <td class="{{ competitor.gender }}" >{{ competitor.gender }}</td>
                         {% csrf_token %}
-                        <td><form method="post"><input class="button-33" type="submit" value="  +  "></form></td>
+                        <td>
+                            <a class="button-33" href="{% add_get competitor=competitor.id delete=''%}"> + </a>
+                        </td>
                     </tr>
             {% endfor %}
         </tr>

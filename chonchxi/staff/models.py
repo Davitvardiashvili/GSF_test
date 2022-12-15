@@ -71,6 +71,6 @@ class Shake(models.Model):
         ordering = ['-updated', '-created']
 
     def __str__(self):
-        return f' {self.season_name} - {self.stage_name} - {self.discipline} - {self.group_name} - {self.participants}'
+        return f' {self.season_name} - {self.stage_name} - {self.discipline} - {self.group_name}'
 
 

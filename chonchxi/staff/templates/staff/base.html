@@ -22,8 +22,6 @@
             <a class="taskbar_a" href="#">შედეგები</a>
             <a class="button-33" id="logout_button" href="{% url 'logout' %}">გასვლა</a>
 
-        {% else %}
-            <a class="taskbar_a" href="{% url 'login' %}">შესვლა</a>
         {% endif %}
         </h3>
     <link rel="stylesheet" type="text/css" href="{% static 'staff/style.css' %}">
